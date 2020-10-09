@@ -2,8 +2,8 @@ package com.kodilla.testing.shape;
 
 import java.util.Objects;
 
-public class Square implements Shape{
-    public static final String name="Square";
+public class Square implements Shape {
+    public static final String name = "Square";
     private double b;
 
     public Square(double b) {
@@ -42,6 +42,6 @@ public class Square implements Shape{
 
     @Override
     public double getField() {
-        return Math.pow(b,2);
+        return Math.pow(b, 2);
     }
 }
