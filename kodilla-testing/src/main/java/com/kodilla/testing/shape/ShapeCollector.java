@@ -5,22 +5,29 @@ import java.util.List;
 
 public class ShapeCollector {
 
-    List<Shape> shapes=new LinkedList<>();
+    private List<Shape> shapes = new LinkedList<>();
 
-    public void addFigures(Shape shape){
+    public List<Shape> getShapes() {
+        return shapes;
+    }
+
+    public void addFigures(Shape shape) {
         shapes.add(shape);
     }
-    public void removeFogure(Shape shape){
+
+    public void removeFogure(Shape shape) {
         shapes.remove(shape);
     }
+
     public Shape getFigure(int n) {
-        if (shapes.size() > 0 && shapes.size() < n) {
+        if (n<shapes.size() && n>=0) {
             return shapes.get(n);
         } else {
             return null;
         }
     }
-    public String showFigures(){
+
+    public String showFigures() {
         return shapes.toString();
     }
 }

@@ -38,7 +38,7 @@ public class ShapeCollectorTestSuite {
         //When
         shapeCollector.addFigures(circle);
         //Then
-        assertThat(shapeCollector.shapes.size()).isEqualTo(1);
+        assertThat(shapeCollector.getShapes().size()).isEqualTo(1);
     }
 
     @DisplayName("Test for removing shape")
@@ -51,7 +51,7 @@ public class ShapeCollectorTestSuite {
         //When
         shapeCollector.removeFogure(square);
         //Then
-        assertThat(shapeCollector.shapes.size()).isEqualTo(0);
+        assertThat(shapeCollector.getShapes()).isEmpty();
     }
     @DisplayName("Test check if list is empty")
     @Test
@@ -63,7 +63,7 @@ public class ShapeCollectorTestSuite {
         //When
         shapeCollector.removeFogure(square);
         //Then
-        assertThat(shapeCollector.shapes).isEmpty();
+        assertThat(shapeCollector.getShapes()).isEmpty();
     }
     @DisplayName("Test for checking number of shape is same")
     @Test
@@ -74,7 +74,7 @@ public class ShapeCollectorTestSuite {
         //When
         shapeCollector.addFigures(triangle);
         //Then
-        assertThat(shapeCollector.getFigure(0)).isEqualTo(triangle);
+        assertThat(triangle).isEqualTo(shapeCollector.getFigure(0));
     }
     @DisplayName("Test for checking list description is same")
     @Test
