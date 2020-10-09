@@ -55,7 +55,7 @@ public class ShapeCollectorTestSuite {
     }
     @DisplayName("Test check if list is empty")
     @Test
-   public void testIfEmpty() {
+    public void testIfEmpty() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         Shape square = new Square(4);
@@ -67,7 +67,7 @@ public class ShapeCollectorTestSuite {
     }
     @DisplayName("Test for checking number of shape is same")
     @Test
-   public void checkShape() {
+    public void checkShape() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         Shape triangle = new Triangle(4, 2);
@@ -78,8 +78,7 @@ public class ShapeCollectorTestSuite {
     }
     @DisplayName("Test for checking list description is same")
     @Test
-   public
-    void checkName() {
+    public void checkName() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         Shape circle=new Circle(5);
@@ -90,6 +89,5 @@ public class ShapeCollectorTestSuite {
         //Then
         assertThat(shapeList.toString()).isEqualTo(shapeCollector.showFigures());
     }
-
 }
 
