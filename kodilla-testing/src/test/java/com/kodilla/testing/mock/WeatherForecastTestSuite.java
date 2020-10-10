@@ -65,11 +65,13 @@ class WeatherForecastTestSuite {
         temperaturesMap.put("Gdansk", 5.0);
         when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+
         //When
         double ar = weatherForecast.calculateForecast().size();
         double avarange = (((weatherForecast.calculateForecast().values().stream().mapToInt(i -> i.intValue()).sum()))) / ar;
+
         //Then
-        Assertions.assertEquals(5.6, avarange);
+        assertThat(5.6).isEqualTo(avarange);
     }
 
     @DisplayName("Test median")
@@ -84,6 +86,7 @@ class WeatherForecastTestSuite {
         temperaturesMap.put("Gdansk", 5.0);
         when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+
         //When
         SortedSet<Double> sort = new TreeSet<Double>(weatherForecast.calculateForecast().values());
         List<Double> list = new ArrayList<>();
@@ -97,7 +100,7 @@ class WeatherForecastTestSuite {
             median = list.get(sort.size() / 2);
 
         //Then
-        Assertions.assertEquals(3, median);
+        assertThat(3.0).isEqualTo(median);
     }
 }
 
