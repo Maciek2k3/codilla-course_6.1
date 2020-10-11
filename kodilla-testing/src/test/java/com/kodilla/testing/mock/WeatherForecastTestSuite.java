@@ -91,9 +91,7 @@ class WeatherForecastTestSuite {
         SortedSet<Double> sort = new TreeSet<Double>(weatherForecast.calculateForecast().values());
         List<Double> list = new ArrayList<>();
         double median;
-        for (Double st : sort) {
-            list.add(st);
-        }
+        list.addAll(sort);
         if (sort.size() % 2 == 0) {
             median = (list.get(sort.size() / 2) + list.get(sort.size() / 2 - 1)) / 2;
         } else
