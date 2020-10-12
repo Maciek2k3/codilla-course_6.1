@@ -1,7 +1,6 @@
 package com.kodilla.testing.statistics;
 
-import com.kodilla.testing.library.Book;
-import com.kodilla.testing.library.LibraryDatabase;
+import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,8 +8,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
-
-import static org.assertj.core.api.Assertions.*;
+import org.mockito.stubbing.OngoingStubbing;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +32,7 @@ public class StatisticTest {
     @Mock
     private Statistics StatisticsMock;
 
+
     @Test
     public void testWithPosts0() {
         //Given
@@ -43,18 +42,27 @@ public class StatisticTest {
         countStatistics.calculateAdvStatistics(StatisticsMock);
         //Then
         assertEquals(0, countStatistics.getPostCount());
-
+        assertEquals(0.0, countStatistics.getAverCommentPost(), 0.01);
+        assertEquals(0.0, countStatistics.getAverPostUser(), 0.01);
     }
 
     @Test
     public void testWithPosts1000() {
         //Given
+        List<String> listMock = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            listMock.add("user1");
+        }
         CountStatistics countStatistics = new CountStatistics(StatisticsMock);
         when(StatisticsMock.postsCount()).thenReturn(1000);
+        when(StatisticsMock.commentsCount()).thenReturn(50);
+        when(StatisticsMock.usersNames()).thenReturn(listMock);
         //When
         countStatistics.calculateAdvStatistics(StatisticsMock);
         //Then
         assertEquals(1000, countStatistics.getPostCount());
+        assertEquals(0.05, countStatistics.getAverCommentPost(), 0.01);
+        assertEquals(0.005, countStatistics.getAverPostUser(), 0.01);
     }
 
     @Test
@@ -62,22 +70,34 @@ public class StatisticTest {
         //Given
         CountStatistics countStatistics = new CountStatistics(StatisticsMock);
         when(StatisticsMock.commentsCount()).thenReturn(0);
+        when(StatisticsMock.postsCount()).thenReturn(1000);
         //When
         countStatistics.calculateAdvStatistics(StatisticsMock);
         //Then
         assertEquals(0, countStatistics.getCommentCount());
+        assertEquals(0, countStatistics.getAverPostUser(), 0.001);
+        assertEquals(0, countStatistics.getAverCommentPost(), 0.001);
+        assertEquals(0, countStatistics.getAverCommentUser(), 0.001);
     }
 
     @Test
     public void testWithCommentsLessPosts() {
         //Given
+        List<String> listMock = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            listMock.add("user1");
+        }
         CountStatistics countStatistics = new CountStatistics(StatisticsMock);
         when(StatisticsMock.commentsCount()).thenReturn(4);
         when(StatisticsMock.postsCount()).thenReturn(10);
+        when(StatisticsMock.usersNames()).thenReturn(listMock);
         //When
         countStatistics.calculateAdvStatistics(StatisticsMock);
         //Then
         assertTrue(countStatistics.getCommentCount() < countStatistics.getPostCount());
+        assertEquals(0.5, countStatistics.getAverPostUser(), 0.001);
+        assertEquals(0.4, countStatistics.getAverCommentPost(), 0.001);
+        assertEquals(1.25, countStatistics.getAverCommentUser(), 0.001);
 
     }
 
@@ -91,6 +111,10 @@ public class StatisticTest {
         countStatistics.calculateAdvStatistics(StatisticsMock);
         //Then
         assertTrue(countStatistics.getCommentCount() > countStatistics.getPostCount());
+        assertEquals(0, countStatistics.getAverPostUser(), 0.001);
+        assertEquals(2.5, countStatistics.getAverCommentPost(), 0.001);
+        assertEquals(0, countStatistics.getAverCommentUser(), 0.001);
+
     }
 
     @Test
@@ -99,10 +123,15 @@ public class StatisticTest {
         List<String> userList = new ArrayList<>();
         CountStatistics countStatistics = new CountStatistics(StatisticsMock);
         when(StatisticsMock.usersNames()).thenReturn(userList);
+        when(StatisticsMock.commentsCount()).thenReturn(4);
+        when(StatisticsMock.postsCount()).thenReturn(10);
         //When
         countStatistics.calculateAdvStatistics(StatisticsMock);
         //Then
         assertEquals(0, countStatistics.getUserCount());
+        assertEquals(0, countStatistics.getAverPostUser(), 0.001);
+        assertEquals(0.4, countStatistics.getAverCommentPost(), 0.001);
+        assertEquals(0, countStatistics.getAverCommentUser(), 0.001);
     }
 
     @Test
@@ -114,9 +143,14 @@ public class StatisticTest {
         }
         CountStatistics countStatistics = new CountStatistics(StatisticsMock);
         when(StatisticsMock.usersNames()).thenReturn(userList);
+        when(StatisticsMock.commentsCount()).thenReturn(4);
+        when(StatisticsMock.postsCount()).thenReturn(10);
         //When
         countStatistics.calculateAdvStatistics(StatisticsMock);
         //Then
         assertEquals(1000, countStatistics.getUserCount());
+        assertEquals(100, countStatistics.getAverPostUser(), 0.001);
+        assertEquals(0.4, countStatistics.getAverCommentPost(), 0.001);
+        assertEquals(250, countStatistics.getAverCommentUser(), 0.001);
     }
 }

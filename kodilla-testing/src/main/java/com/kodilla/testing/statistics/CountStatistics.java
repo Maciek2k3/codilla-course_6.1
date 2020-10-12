@@ -70,7 +70,7 @@ public class CountStatistics {
 
     public double calculateAverCommentPost() {
         if (postCount > 0) {
-            return (double) commentCount / userCount;
+            return (double) commentCount / postCount;
         } else {
             return 0;
         }
