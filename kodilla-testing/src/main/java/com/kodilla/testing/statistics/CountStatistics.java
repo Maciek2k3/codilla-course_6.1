@@ -54,7 +54,7 @@ public class CountStatistics {
 
     public double calculateAverPostUser() {
         if (userCount > 0) {
-            return (double) userCount / postCount;
+            return (double) postCount / userCount;
         } else {
             return 0;
         }
@@ -62,7 +62,7 @@ public class CountStatistics {
 
     public double calculateAverCommentUser() {
         if (userCount > 0) {
-            return (double) userCount / commentCount;
+            return (double) commentCount / userCount;
         } else {
             return 0;
         }

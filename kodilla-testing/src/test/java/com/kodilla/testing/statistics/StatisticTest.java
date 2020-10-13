@@ -62,7 +62,7 @@ public class StatisticTest {
         //Then
         assertEquals(1000, countStatistics.getPostCount());
         assertEquals(0.05, countStatistics.getAverCommentPost(), 0.01);
-        assertEquals(0.005, countStatistics.getAverPostUser(), 0.01);
+        assertEquals(200.0, countStatistics.getAverPostUser(), 0.01);
     }
 
     @Test
@@ -95,9 +95,10 @@ public class StatisticTest {
         countStatistics.calculateAdvStatistics(StatisticsMock);
         //Then
         assertTrue(countStatistics.getCommentCount() < countStatistics.getPostCount());
-        assertEquals(0.5, countStatistics.getAverPostUser(), 0.001);
+        assertEquals(2.0, countStatistics.getAverPostUser(), 0.001);
         assertEquals(0.4, countStatistics.getAverCommentPost(), 0.001);
-        assertEquals(1.25, countStatistics.getAverCommentUser(), 0.001);
+        assertEquals(0.8
+                , countStatistics.getAverCommentUser(), 0.001);
 
     }
 
@@ -149,8 +150,8 @@ public class StatisticTest {
         countStatistics.calculateAdvStatistics(StatisticsMock);
         //Then
         assertEquals(1000, countStatistics.getUserCount());
-        assertEquals(100, countStatistics.getAverPostUser(), 0.001);
+        assertEquals(0.01, countStatistics.getAverPostUser(), 0.001);
         assertEquals(0.4, countStatistics.getAverCommentPost(), 0.001);
-        assertEquals(250, countStatistics.getAverCommentUser(), 0.001);
+        assertEquals(0.004, countStatistics.getAverCommentUser(), 0.001);
     }
 }
