@@ -2,6 +2,8 @@ package com.kodilla.testing.collection;
 import static org.assertj.core.api.Assertions.*;
 import org.junit.Test;
 import org.junit.jupiter.api.*;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,17 +33,17 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorEmptyList(){
         //Given
-        OddNumbersExterminator emptyExaminator=new OddNumbersExterminator();
-        List<Integer> emptyList= Arrays.asList();
+        OddNumbersExterminator emptyExaminator = new OddNumbersExterminator();
+        List<Integer> emptyList = new ArrayList<>();
         //When
-        List<Integer> exam=emptyExaminator.exterminate(emptyList);
+        List<Integer> exam = emptyExaminator.exterminate(emptyList);
         //Then
         assertThat(exam).isEmpty();
     }
     @DisplayName("when create list with odd and even number, " +
             "then list should return only even numbers, plus even List size with only even numbers")
     @Test
-    public void  OddNumbersExterminatorNormalList(){
+    public void oddNumbersExterminatorNormalList(){
         //Given
         OddNumbersExterminator oddNumbersExterminator=new OddNumbersExterminator();
         List<Integer> evenList=Arrays.asList(4,5,7,9);

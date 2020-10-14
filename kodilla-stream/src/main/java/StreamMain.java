@@ -35,11 +35,11 @@ public class StreamMain {
 
         //System.out.println("--------------------------------");
         PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("Text1", text -> text.toUpperCase());
-        poemBeautifier.beautify("Text2", text -> "ABC" + text + "ABC");
-        poemBeautifier.beautify("Text3    ", text -> text.trim());
-        poemBeautifier.beautify("aaaText4bbb", text -> text.substring(3, 8));
-        poemBeautifier.beautify("TEXT5", text -> text.toLowerCase());
+        System.out.println(poemBeautifier.beautify("Text1", text -> text.toUpperCase()));
+        System.out.println(poemBeautifier.beautify("Text2", text -> "ABC" + text + "ABC"));
+        System.out.println(poemBeautifier.beautify("Text3    ", text -> text.trim()));
+        System.out.println(poemBeautifier.beautify("aaaText4bbb", text -> text.substring(3, 8)));
+        System.out.println(poemBeautifier.beautify("TEXT5", text -> text.toLowerCase()));
 
         System.out.println("Using Stream to generate even numbers from 1 to 20");
         NumbersGenerator.generateEven(20);
@@ -77,15 +77,19 @@ public class StreamMain {
                 .forEach(System.out::println);
 
         System.out.println("7.3--------------------------------------------7.3");
-        ForumUsersDirectory forumUsersDirectory=new ForumUsersDirectory();
-        LocalDate forumDate=LocalDate.of(2000,10,12);
+        ForumUsersDirectory forumUsersDirectory = new ForumUsersDirectory();
+        LocalDate forumDate =LocalDate.now().minusYears(20);
 
-        Map<Integer, ForumUser> theResultOfUsers=forumUsersDirectory.getUserList().stream().
-                filter(ForumUser->ForumUser.getSex()=='M').filter(ForumUser-> ForumUser.getBirthDate().isBefore(forumDate)).
-                filter(ForumUser->ForumUser.getPostCount()>=1).collect(Collectors.toMap(ForumUser::getId,ForumUser->ForumUser));
+        Map<Integer, ForumUser> theResultOfUsers = forumUsersDirectory.getUserList().stream()
+                .filter(forumUser -> forumUser.getSex() == 'M')
+                .filter(forumUser -> forumUser.getBirthDate().isBefore(forumDate))
+                .filter(forumUser -> forumUser.getPostCount() >= 1)
+                .collect(Collectors.toMap(ForumUser::getId, forumUser -> forumUser));
 
 
-        theResultOfUsers.entrySet().stream().map(entry->entry.getKey()+": "+entry.getValue()).forEach(System.out::println);
+        theResultOfUsers.entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                .forEach(System.out::println);
     }
 }
 
