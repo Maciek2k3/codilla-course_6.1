@@ -17,7 +17,7 @@ public final class Country {
     }
 
     public BigDecimal getPeopleQuantity() {
-        BigDecimal peopleQuant=new BigDecimal(String.valueOf(peopleQuantity));
+        BigDecimal peopleQuant = new BigDecimal(String.valueOf(peopleQuantity));
         return peopleQuant;
     }
 

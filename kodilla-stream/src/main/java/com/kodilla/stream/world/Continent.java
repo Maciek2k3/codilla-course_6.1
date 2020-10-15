@@ -19,7 +19,8 @@ public class Continent {
     public String getConinentName() {
         return coninentName;
     }
-    public boolean addCountry (Country country){
+
+    public boolean addCountry(Country country) {
         return countryList.add(country);
     }
 }
