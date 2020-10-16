@@ -163,7 +163,7 @@ public class BoardTestSuite {
                         map(Task -> Period.between(Task.getCreated(), LocalDate.now())).
                         map(t -> 1).reduce(0, (sum, current) -> sum += current);
 
-        double averange = board.getTaskLists().stream().
+        double average = board.getTaskLists().stream().
                 filter(taskTimes::contains)
                 .flatMap(tl -> tl.getTasks().stream()).
                         map(Task -> Period.between(Task.getCreated(), LocalDate.now()).
@@ -171,7 +171,7 @@ public class BoardTestSuite {
 
         double averCount = sumDays / tasks;
 
-        assertEquals(10, averange, 0.001);
+        assertEquals(10, average, 0.001);
         assertEquals(10, averCount, 0.0001);
 
     }
