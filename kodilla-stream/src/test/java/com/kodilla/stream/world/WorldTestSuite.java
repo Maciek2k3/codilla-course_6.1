@@ -21,12 +21,14 @@ public class WorldTestSuite {
         World world = new World(continents);
         world.getContinentList();
 
-
         //When
-        BigDecimal peopleQuantity = world.getContinentList().stream()
-                .flatMap(continent -> continent.getCountryList().stream()
-                        .map(country -> country.getPeopleQuantity()))
-                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
+        BigDecimal peopleQuantity = world.getPeopleQuantity();
+
+        //BigDecimal peopleQuantity = world.getContinentList().stream()
+        //      .flatMap(continent -> continent.getCountryList().stream()
+        //            .map(country -> country.getPeopleQuantity()))
+        //  .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
+
         //Then
         BigDecimal quantity = new BigDecimal("1700000000");
         Assert.assertEquals(quantity, peopleQuantity);
