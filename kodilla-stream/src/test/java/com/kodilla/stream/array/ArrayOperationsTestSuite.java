@@ -13,8 +13,8 @@ public class ArrayOperationsTestSuite {
         //Given
         int[] numbers = {2, 3, 4, 5, 6};
         //When
-        double avarange = ArrayOperations.getAverage(numbers);
+        double average = ArrayOperations.getAverage(numbers);
         //Then
-        assertEquals(4.0, avarange, 0.001);
+        assertEquals(4.0, average, 0.001);
     }
 }
