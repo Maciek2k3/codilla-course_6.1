@@ -151,23 +151,23 @@ public class BoardTestSuite {
         List<TaskList> taskTimes = new ArrayList<>();
         taskTimes.add(new TaskList("In progress"));
 
-        int sumDays = board.getTaskLists().stream().
-                filter(taskTimes::contains)
-                .flatMap(tl -> tl.getTasks().stream()).
-                        map(Task -> Period.between(Task.getCreated(), LocalDate.now()).
-                                getDays()).reduce(0, (sum, current) -> sum += current);
+        int sumDays = board.getTaskLists().stream()
+                .filter(taskTimes::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(Task -> Period.between(Task.getCreated(), LocalDate.now())
+                        .getDays()).reduce(0, (sum, current) -> sum += current);
 
-        int tasks = board.getTaskLists().stream().
-                filter(taskTimes::contains)
-                .flatMap(tl -> tl.getTasks().stream()).
-                        map(Task -> Period.between(Task.getCreated(), LocalDate.now())).
-                        map(t -> 1).reduce(0, (sum, current) -> sum += current);
+        int tasks = board.getTaskLists().stream()
+                .filter(taskTimes::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(Task -> Period.between(Task.getCreated(), LocalDate.now()))
+                .map(t -> 1).reduce(0, (sum, current) -> sum += current);
 
         double average = board.getTaskLists().stream().
                 filter(taskTimes::contains)
-                .flatMap(tl -> tl.getTasks().stream()).
-                        map(Task -> Period.between(Task.getCreated(), LocalDate.now()).
-                                getDays()).mapToInt(Integer::intValue).average().getAsDouble();
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(Task -> Period.between(Task.getCreated(), LocalDate.now())
+                        .getDays()).mapToInt(Integer::intValue).average().getAsDouble();
 
         double averCount = sumDays / tasks;
 

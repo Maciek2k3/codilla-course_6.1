@@ -15,7 +15,8 @@ public class WorldTestSuite {
         List<Continent> continents = new ArrayList<>();
         List<Country> countries = new ArrayList<>();
         countries.add(new Country("Poland", new BigDecimal(500000000)));
-        countries.add(new Country("Germany", new BigDecimal(400000000)));
+        countries.add(new Country("Germany", new BigDecimal(600000000)));
+        countries.add(new Country("Germany", new BigDecimal(600000000)));
         continents.add(new Continent(countries, "Europe"));
         World world = new World(continents);
         world.getContinentList();
@@ -23,10 +24,11 @@ public class WorldTestSuite {
 
         //When
         BigDecimal peopleQuantity = world.getContinentList().stream()
-                .flatMap(continent -> continent.getCountryList().stream().map(country -> country.getPeopleQuantity()))
+                .flatMap(continent -> continent.getCountryList().stream()
+                        .map(country -> country.getPeopleQuantity()))
                 .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
         //Then
-        BigDecimal quantity = new BigDecimal("900000000");
+        BigDecimal quantity = new BigDecimal("1700000000");
         Assert.assertEquals(quantity, peopleQuantity);
     }
 }
