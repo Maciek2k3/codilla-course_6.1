@@ -10,10 +10,11 @@ public class RpsRunner {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         boolean end = false;
-        int gameComputer;
+       // int gameComputer;
         List<Integer> userResult = new ArrayList<>();
         List<Integer> compResult = new ArrayList<>();
         ComputerRunner computerRunner=new ComputerRunner();
+        int gameComputer=0;
 
 
         while (!end) {
