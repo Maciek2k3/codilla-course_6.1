@@ -13,9 +13,12 @@ public class RpsRunner {
         int gameComputer;
         List<Integer> userResult = new ArrayList<>();
         List<Integer> compResult = new ArrayList<>();
+        ComputerRunner computerRunner=new ComputerRunner();
 
 
         while (!end) {
+            userResult.clear();
+            compResult.clear();
             System.out.println("Type your name");
             String name = scanner.nextLine();
             System.out.println("Type how many round is played ");
@@ -34,14 +37,17 @@ public class RpsRunner {
                 System.out.println("Type your choice");
                 String gameNumber = scanner.nextLine();
                 int choseNumber = Integer.parseInt(gameNumber);
-                gameComputer = random.nextInt(3) + 1;
+                //gameComputer = random.nextInt(3) + 1;
                 if (choseNumber == 1 || choseNumber == 2 || choseNumber == 3) {
                     if (choseNumber == 1) {
                         System.out.println("Your Choice: rocket");
+                        gameComputer= computerRunner.userRocket();
                     } else if (choseNumber == 2) {
                         System.out.println("Your Choice: paper");
+                        gameComputer=computerRunner.userScissors();
                     } else {
                         System.out.println("Your choice: scissors");
+                        gameComputer=computerRunner.userPaper();
                     }
 
                     if (gameComputer == 1) {
