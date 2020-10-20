@@ -34,7 +34,7 @@ public class RpsRunner {
                 System.out.println("Type your choice");
                 String gameNumber = scanner.nextLine();
                 int choseNumber = Integer.parseInt(gameNumber);
-                gameComputer = random.nextInt(4) + 1;
+                gameComputer = random.nextInt(3) + 1;
                 if (choseNumber == 1 || choseNumber == 2 || choseNumber == 3) {
                     if (choseNumber == 1) {
                         System.out.println("Your Choice: rocket");
