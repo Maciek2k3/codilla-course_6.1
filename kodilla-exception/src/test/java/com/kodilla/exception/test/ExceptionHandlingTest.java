@@ -2,6 +2,7 @@ package com.kodilla.exception.test;
 
 import com.kodilla.exception.io.FileReaderException;
 import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.*;
 
 import java.util.Random;
