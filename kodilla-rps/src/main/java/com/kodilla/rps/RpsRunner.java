@@ -27,14 +27,7 @@ public class RpsRunner {
             String choose = scanner.nextLine();
             int howManyNumber = Integer.parseInt(choose);
             System.out.println("your name is: " + name + "," + "You play round: " + howManyNumber);
-            System.out.println("Rules for game:");
-            System.out.println("1-rocket");
-            System.out.println("2-paper");
-            System.out.println("3-scissors");
-            System.out.println("4-blizzard");
-            System.out.println("5-spock");
-            System.out.println("x-end");
-            System.out.println("n-once Again");
+            printMenu();
 
             for (int i = 0; i < howManyNumber; i++) {
                 System.out.println("Round: " + (i + 1));
@@ -176,5 +169,16 @@ public class RpsRunner {
                 }
             }
         }
+
+    private static void printMenu() {
+        System.out.println("Rules for game:");
+        System.out.println("1-rocket");
+        System.out.println("2-paper");
+        System.out.println("3-scissors");
+        System.out.println("4-blizzard");
+        System.out.println("5-spock");
+        System.out.println("x-end");
+        System.out.println("n-once Again");
     }
+}
 
