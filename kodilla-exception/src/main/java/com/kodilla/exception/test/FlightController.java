@@ -9,7 +9,6 @@ public class FlightController {
     public FlightController() {
         mapA = addMapA();
     }
-
     boolean airport(String name) throws RouteNotFoundException {
         if (mapA.containsKey(name)) {
             return mapA.get(name);
