@@ -16,7 +16,7 @@ public class FlightController {
             throw new RouteNotFoundException("No flight");
     }
 
-    public boolean routeAirport(Flight flight) throws RouteNotFoundException {
+    public boolean findFlight(Flight flight) throws RouteNotFoundException {
         return airport(flight.getArrivalAirport()) && airport(flight.getDepartureAirport());
     }
 

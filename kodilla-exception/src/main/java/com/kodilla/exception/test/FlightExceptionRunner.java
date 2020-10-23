@@ -9,9 +9,10 @@ import java.util.Map;
 
 public class FlightExceptionRunner {
     public static void main(String[] args) {
+        Flight wawKrk=new Flight("WAW","KRK");
         FlightController flightController=new FlightController();
         try {
-          flightController.airport("ABC");
+          flightController.findFlight(wawKrk);
         } catch (RouteNotFoundException e) {
             System.out.println("Fly is NOK," +
                     "but my program still running very well!");
