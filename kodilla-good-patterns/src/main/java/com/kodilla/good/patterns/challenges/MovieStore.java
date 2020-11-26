@@ -30,11 +30,10 @@ public class MovieStore {
 
     public static void main(String[] args) {
         MovieStore movieStore = new MovieStore();
-        List<String> movieList = movieStore.getMovies().entrySet().stream()
+        String movieList = movieStore.getMovies().entrySet().stream()
                 .flatMap(entry -> entry.getValue().stream())
-                .collect(Collectors.toList());
-        movieList.stream().collect(Collectors.joining("!"));
-        System.out.println(movieList.stream().collect(Collectors.joining("!")));
+                .collect(Collectors.joining("!"));
+        System.out.println(movieList);
     }
 
 }
