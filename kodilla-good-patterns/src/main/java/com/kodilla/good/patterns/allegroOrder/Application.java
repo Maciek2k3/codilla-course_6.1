@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.allegroOrder;
+package com.kodilla.good.patterns.allegroOrder;
 
 public class Application {
     public static void main(String[] args) {

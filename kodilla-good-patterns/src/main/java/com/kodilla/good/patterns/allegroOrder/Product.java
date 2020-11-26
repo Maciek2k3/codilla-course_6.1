@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.allegroOrder;
+package com.kodilla.good.patterns.allegroOrder;
 
 abstract class Product {
     private String productName;
