@@ -1,70 +1,50 @@
 package com.kodilla.good.patterns.challenges.Flight;
 
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class FligtService {
     private Connections connections;
-    String departure;
-    String arrival;
-    ArrayList<String> viaConnection;
-
-    public FligtService(String departure, String arrival) {
-        this.departure = departure;
-        this.arrival = arrival;
-    }
-
-    public Connections getConnections() {
-        return connections;
-    }
-
-    public String getDeparture() {
-        return departure;
-    }
-
-    public String getArrival() {
-        return arrival;
-    }
 
     public FligtService(Connections connections) {
         this.connections = connections;
     }
 
-    public boolean flightSercherDepatrutre(String departure) {
-        if (connections.fillDB().entrySet().stream().map(Map.Entry::getKey).equals(departure)) {
-            return true;
-        } else {
-            System.out.println("no Departure Flight");
-            return false;
-        }
+    public Set<Airports> routeFrom(String departure) {
+        return connections.getFlightsAvailable().stream().
+                filter(e -> e.getDepartureAirport().
+                        equals(departure)).collect(Collectors.toSet());
     }
 
-    public boolean flightSercherArrival(String arrival) {
-        if (connections.fillDB().entrySet().stream().map(Map.Entry::getValue).equals(arrival)) {
-            return true;
-        } else {
-            System.out.println("no Arrival Flight");
-            return false;
-        }
+    public Set<Airports> routeTo(String arrival) {
+        return connections.getFlightsAvailable().stream().
+                filter(e -> e.getArrivalAirport().
+                        equals(arrival)).collect(Collectors.toSet());
     }
 
-    public void flightRoute() {
-        if (flightSercherDepatrutre(departure) == true && flightSercherArrival(arrival) == true) {
-            System.out.println("We found your flight");
-            viaConnection.add(connections.fillDB().entrySet().stream().map(Map.Entry::getValue).toString());
-        } else {
-            System.out.println("Not find Flight");
-            connectionFlight();
-        }
-    }
+    public Set<List<Airports>> routeConnecting(String departure, String arrival) {
+        Set<List<Airports>> flights = new HashSet<>();
+        for (Airports flight : connections.getFlightsAvailable()) {
+            if (flight.getDepartureAirport().equals(departure)) {
+                List<Airports> via = new ArrayList<>();
+                for (Airports el : connections.getFlightsAvailable()) {
+                    if ((flight.getArrivalAirport().equals(el.getDepartureAirport()) && el.getArrivalAirport().equals(arrival))) {
+                        via.add(el);
+                    }
+                    if (via.size() > 0) {
+                        List<Airports> routes = new ArrayList<>();
+                        routes.add(flight);
+                        routes.addAll(via);
+                        flights.add(routes);
+                    }
+                }
 
-    public void connectionFlight() {
-        if (viaConnection.get(0).equals(connections.fillDB().entrySet().stream().map(Map.Entry::getKey).equals(departure))) {
-            System.out.println("We found flight via" + viaConnection.get(0));
-        } else {
-            System.out.println("No connnecting flights");
+            }
         }
-
+        return flights;
     }
 }
 
