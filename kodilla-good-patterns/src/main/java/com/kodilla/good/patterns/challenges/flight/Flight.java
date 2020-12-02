@@ -1,12 +1,12 @@
-package com.kodilla.good.patterns.challenges.Flight;
+package com.kodilla.good.patterns.challenges.flight;
 
 import java.util.Objects;
 
-public class Airports {
+public class Flight {
     private String departureAirport;
     private String arrivalAirport;
 
-    public Airports(String departureAirport, String arrivalAirport) {
+    public Flight(String departureAirport, String arrivalAirport) {
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
     }
@@ -24,7 +24,7 @@ public class Airports {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Airports airports = (Airports) o;
+        Flight airports = (Flight) o;
         return Objects.equals(departureAirport, airports.departureAirport) &&
                 Objects.equals(arrivalAirport, airports.arrivalAirport);
     }
