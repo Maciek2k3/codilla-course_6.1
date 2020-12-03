@@ -14,36 +14,37 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class KodillaSpringApplicationTests {
-	@Test
-	void testCircleLoadedIntoContainer(){
-	//Given
-	ApplicationContext context=new AnnotationConfigApplicationContext("com.example.kodillaspring");
+    @Test
+    void testCircleLoadedIntoContainer() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.example.kodillaspring");
 
-	Shape shape = context.getBean(Circle.class);
+        Shape shape = context.getBean(Circle.class);
 
-	//When
-	String name = shape.getName();
+        //When
+        String name = shape.getName();
 
-	//Then
-	 assertEquals("This is a Circle",name);
-}
+        //Then
+        assertEquals("This is a Circle", name);
+    }
 
 
-	@Test
-	void testTriangleLoadedIntoContainer() {
-		//Given
-		ApplicationContext context =
-				new AnnotationConfigApplicationContext("com.example.kodillaspring");
-		Shape shape = context.getBean(Triangle.class);
+    @Test
+    void testTriangleLoadedIntoContainer() {
+        //Given
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext("com.example.kodillaspring");
+        Shape shape = context.getBean(Triangle.class);
 
-		//When
-		String name = shape.getName();
+        //When
+        String name = shape.getName();
 
-		//Then
-		assertEquals("This is a Triangle", name);
-	}
-	@Test
-	void contextLoads() {
-	}
+        //Then
+        assertEquals("This is a Triangle", name);
+    }
+
+    @Test
+    void contextLoads() {
+    }
 
 }
