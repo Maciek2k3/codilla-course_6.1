@@ -1,5 +1,6 @@
 package com.example.kodillaspring;
 
+import com.example.kodillaspring.library.LibraryConfig;
 import com.example.kodillaspring.shape.Circle;
 import com.example.kodillaspring.shape.Shape;
 import com.example.kodillaspring.shape.Square;
@@ -10,6 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -66,6 +69,18 @@ class KodillaSpringApplicationTests {
 
         //Then
         System.out.println("Chosen shape says: " + name);
+    }
+    @Test
+    void testContext() {
+        //Given
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext("com.example.kodillaspring");
+
+        //When & Then
+        System.out.println("===== Beans list: ==== >>");
+        Arrays.stream(context.getBeanDefinitionNames())
+                .forEach(System.out::println);
+        System.out.println("<< ===== Beans list ====");
     }
 
     @Test
