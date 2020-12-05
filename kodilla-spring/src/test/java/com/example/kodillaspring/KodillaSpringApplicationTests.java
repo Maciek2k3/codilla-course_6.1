@@ -23,7 +23,7 @@ class KodillaSpringApplicationTests {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.example.kodillaspring");
 
-        Shape shape = (Shape)context.getBean("circle");
+        Shape shape = (Shape) context.getBean("circle");
 
         //When
         String name = shape.getName();
@@ -46,6 +46,7 @@ class KodillaSpringApplicationTests {
         //Then
         assertEquals("This is a Triangle", name);
     }
+
     @Test
     void testSquareLoadedIntoContainer() {
         //Given
@@ -57,12 +58,13 @@ class KodillaSpringApplicationTests {
         //Then
         assertEquals("This is a square", name);
     }
+
     @Test
     void testShapeLoadedIntoContainer() {
         //Given
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.example.kodillaspring");
-        Shape shape = (Shape)context.getBean("choosenShape");
+        Shape shape = (Shape) context.getBean("choosenShape");
 
         //When
         String name = shape.getName();
@@ -70,6 +72,7 @@ class KodillaSpringApplicationTests {
         //Then
         System.out.println("Chosen shape says: " + name);
     }
+
     @Test
     void testContext() {
         //Given

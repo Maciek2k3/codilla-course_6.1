@@ -16,6 +16,7 @@ public class ReaderTestSuite {
         //When & Then
         reader.read();
     }
+
     @Test
     void testConditional() {
         //Given

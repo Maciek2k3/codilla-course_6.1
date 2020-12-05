@@ -14,7 +14,7 @@ public class RpsRunner {
         List<Integer> userResult = new ArrayList<>();
         List<Integer> compResult = new ArrayList<>();
         ComputerRunner computerRunner = new ComputerRunner();
-       // int gameComputer = 0;
+        // int gameComputer = 0;
 
 
         while (!end) {
@@ -153,22 +153,22 @@ public class RpsRunner {
                 System.out.println("Type x- to end, n-once again");
 
             }
-                Scanner scan = new Scanner(System.in);
-                String game = scan.nextLine();
-                if (game.equals("x")) {
-                    System.out.println("Are you sure: type x ");
-                    String gameClose = scan.nextLine();
-                    if (gameClose.equals("x")) {
-                        end = true;
-                    } else
-                        System.out.println(("Wrong choice"));
-                } else if (game.equals("n")) {
-                    end = false;
-                } else {
-                    System.out.println("Wrong choice");
-                }
+            Scanner scan = new Scanner(System.in);
+            String game = scan.nextLine();
+            if (game.equals("x")) {
+                System.out.println("Are you sure: type x ");
+                String gameClose = scan.nextLine();
+                if (gameClose.equals("x")) {
+                    end = true;
+                } else
+                    System.out.println(("Wrong choice"));
+            } else if (game.equals("n")) {
+                end = false;
+            } else {
+                System.out.println("Wrong choice");
             }
         }
+    }
 
     private static void printMenu() {
         System.out.println("Rules for game:");

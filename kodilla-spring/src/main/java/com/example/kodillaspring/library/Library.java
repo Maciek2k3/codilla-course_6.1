@@ -15,7 +15,8 @@ public class Library {
     public Library(LibraryDbController libraryDbController) {
         this.libraryDbController = libraryDbController;
     }
-    public Library(){
+
+    public Library() {
 
     }
 
