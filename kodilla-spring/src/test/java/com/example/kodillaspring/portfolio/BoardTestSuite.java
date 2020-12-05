@@ -1,7 +1,5 @@
 package com.example.kodillaspring.portfolio;
 
-import com.example.kodillaspring.reader.Reader;
-import com.example.kodillaspring.reader.ReaderConfig;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
