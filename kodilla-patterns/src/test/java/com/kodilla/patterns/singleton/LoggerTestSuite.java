@@ -17,6 +17,7 @@ public class LoggerTestSuite {
     @Test
     void testGetLog() {
         //Given
+        logger = Logger.INSTANCE;
         // When
         String loggin = logger.getLastLog();
         //Then
