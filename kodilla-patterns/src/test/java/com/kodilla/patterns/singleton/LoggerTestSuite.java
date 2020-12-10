@@ -21,7 +21,7 @@ public class LoggerTestSuite {
         // When
         String loggin = logger.getLastLog();
         //Then
-        assertEquals("Log1",loggin);
+        assertEquals("Log1", loggin);
     }
 
 }
