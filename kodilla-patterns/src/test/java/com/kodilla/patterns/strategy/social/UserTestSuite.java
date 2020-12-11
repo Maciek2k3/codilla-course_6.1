@@ -33,5 +33,6 @@ public class UserTestSuite {
         //THEN
         assertEquals("Using Twitter", maciekSocial);
 
+
     }
 }
