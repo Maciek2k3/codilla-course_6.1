@@ -5,14 +5,14 @@ public class TaskFactory {
     public static final String PAINTINGTASK = "PAINTINGTASK";
     public static final String DRIVINGTASK = "DRIVINGTASK";
 
-    public final Task task(final String taskClass) {
-        switch (taskClass) {
+    public final Task create(final String createClass, final String productColourWhere) {
+        switch (createClass) {
             case SHOPPINGTASK:
-                return new ShoppingTask("Shop", "Bread", 2);
+                return new ShoppingTask("Shop",productColourWhere, 2);
             case PAINTINGTASK:
-                return new PaintingTask("Paint", "Black", "Roof");
+                return new PaintingTask("Paint", productColourWhere, "Roof");
             case DRIVINGTASK:
-                return new DrivingTask("Drive", "WAW", "yes");
+                return new DrivingTask("Drive", productColourWhere, "yes");
             default:
                 return null;
         }
