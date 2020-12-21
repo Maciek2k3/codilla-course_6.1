@@ -14,7 +14,8 @@ public class Matrix {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
-
+    String va=" ";
+    String vb=" ";
     public int[][] fillMatrix() {
         for (int y = 0; y <= 9; y++) {
             System.out.println("Give raw number");
@@ -27,10 +28,24 @@ public class Matrix {
             matrix[a - 1][b - 1] = c;
 
             for (int i = 0; i < matrix.length; i++) {
+
                 for (int j = 0; j < matrix[i].length; j++) {
+                    if ((i+1)%3==0){
+                        va="-";
+                    }else {
+                        va=" ";
+                    }
+                    if ((j+1)%3==0){
+                        vb="|";
+                    }else {
+                        vb=" ";
+                    }
                     System.out.print(matrix[i][j]);
+                    System.out.print(vb);
+
                 }
                 System.out.println();
+                System.out.println(va+va+va+va+va+va+va+va+va+va+va+va+va+va+va+va+va+va);
             }
         }
         return matrix;

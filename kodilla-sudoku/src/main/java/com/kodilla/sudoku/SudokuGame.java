@@ -69,7 +69,7 @@ public class SudokuGame {
     public void game() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                System.out.print("" + board[i][j]);
+                System.out.print(" " + board[i][j]);
             }
             System.out.println();
         }
