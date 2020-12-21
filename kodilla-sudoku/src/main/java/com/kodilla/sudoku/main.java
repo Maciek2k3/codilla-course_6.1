@@ -17,12 +17,12 @@ public class main {
                 System.out.println("no to solve");
             }
             System.out.println("do you want to play again: Y/N");
-            Scanner scanner=new Scanner(System.in);
-            String question=scanner.nextLine();
-            if (question=="Y"){
-                gameFinished=false;
-            }else {
-                gameFinished=true;
+            Scanner scanner = new Scanner(System.in);
+            String question = scanner.nextLine();
+            if (question == "Y") {
+                gameFinished = false;
+            } else {
+                gameFinished = true;
             }
 
         }
