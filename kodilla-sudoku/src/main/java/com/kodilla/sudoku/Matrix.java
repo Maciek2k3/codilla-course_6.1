@@ -45,7 +45,10 @@ public class Matrix {
 
                 }
                 System.out.println();
-                System.out.println(va+va+va+va+va+va+va+va+va+va+va+va+va+va+va+va+va+va);
+                for (int k=0;k<18;k++){
+                    System.out.print(va);
+                }
+                System.out.println();
             }
         }
         return matrix;
