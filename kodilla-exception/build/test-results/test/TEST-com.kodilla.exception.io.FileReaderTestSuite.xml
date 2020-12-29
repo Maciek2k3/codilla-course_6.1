@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.exception.io.FileReaderTestSuite" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-12-29T18:13:41" hostname="Air-Maciej" time="0.062">
+  <properties/>
+  <testcase name="whenFileDosentExistsReadFileShouldThrowException()" classname="com.kodilla.exception.io.FileReaderTestSuite" time="0.009"/>
+  <testcase name="testReadFileWithName()" classname="com.kodilla.exception.io.FileReaderTestSuite" time="0.039"/>
+  <testcase name="testReadFile()" classname="com.kodilla.exception.io.FileReaderTestSuite" time="0.006"/>
+  <system-out><![CDATA[I am gonna be here... always!
+I am gonna be here... always!
+I am gonna be here... always!
+Jarek
+Darek
+Seba
+Maciek
+I am gonna be here... always!
+/Users/maciek/Desktop/Kodilla-Course/kodilla-course/kodilla-exception/build/resources/main/names.txt
+Jarek
+Darek
+Seba
+Maciek
+Always
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.good.patterns.challenges.flight.FlightTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-12-29T18:13:46" hostname="Air-Maciej" time="0.02">
+  <properties/>
+  <testcase name="shouldNoReturnflightTestTO" classname="com.kodilla.good.patterns.challenges.flight.FlightTest" time="0.007"/>
+  <testcase name="shouldReturnflightTestTO" classname="com.kodilla.good.patterns.challenges.flight.FlightTest" time="0.002"/>
+  <testcase name="shouldFindConnectingFlight" classname="com.kodilla.good.patterns.challenges.flight.FlightTest" time="0.002"/>
+  <testcase name="shouldNotFindSecondFlight" classname="com.kodilla.good.patterns.challenges.flight.FlightTest" time="0.002"/>
+  <testcase name="shouldNotFindFirstFlight" classname="com.kodilla.good.patterns.challenges.flight.FlightTest" time="0.001"/>
+  <testcase name="shouldReturnFlightsFromTest" classname="com.kodilla.good.patterns.challenges.flight.FlightTest" time="0.002"/>
+  <testcase name="shouldReturnNoFlightsFromTest" classname="com.kodilla.good.patterns.challenges.flight.FlightTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
