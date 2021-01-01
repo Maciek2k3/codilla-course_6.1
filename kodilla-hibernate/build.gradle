@@ -32,6 +32,15 @@ dependencies {
 	testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.5.13'
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.0'
 	testCompile group: 'org.mockito', name: 'mockito-core', version: '3.5.13'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+	testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.4.1'
+	// https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.27.Final'
+// https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager
+	compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.4.27.Final'
+// https://mvnrepository.com/artifact/org.springframework.security/spring-security-web
+	compile group: 'org.springframework.security', name: 'spring-security-web', version: '5.4.2'
+
 
 
 }
