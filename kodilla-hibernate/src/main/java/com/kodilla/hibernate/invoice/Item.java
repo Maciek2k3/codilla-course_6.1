@@ -12,12 +12,13 @@ public class Item {
     @NotNull
     @Column(name = "ITEM_ID", unique = true)
     private int id;
+
     private Product product;
-    @Column(name = "Price")
+    @Column(name = "PRICE")
     private BigDecimal price;
-    @Column(name = "Quantity")
+    @Column(name = "QUANTITY")
     private int quantity;
-    @Column(name = "Value")
+    @Column(name = "VALUE")
     private BigDecimal value;
 
     @ManyToOne(cascade = CascadeType.ALL)

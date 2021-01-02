@@ -12,7 +12,7 @@ public class Invoice {
     @NotNull
     @Column(name="INVOICE_ID", unique = true)
     private int id;
-    @Column(name="Number")
+    @Column(name="NUMBER")
     private String number;
     private List<Item> items;
 
@@ -44,6 +44,7 @@ public class Invoice {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
+    @Column(name = "ITEM_ID", nullable = false)
     public List<Item> getItems() {
         return items;
     }

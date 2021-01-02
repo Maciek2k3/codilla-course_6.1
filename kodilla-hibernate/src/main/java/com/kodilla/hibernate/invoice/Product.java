@@ -13,7 +13,7 @@ public class Product {
     @Column(name="PRODUCT_ID")
     private int id;
     @NotNull
-    @Column(name="PRODUCT_NAME")
+    @Column(name="NAME")
     private String name;
 
     public Product(String name) {
