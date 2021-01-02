@@ -12,7 +12,6 @@ public class Item {
     @NotNull
     @Column(name = "ITEM_ID", unique = true)
     private int id;
-
     private Product product;
     @Column(name = "PRICE")
     private BigDecimal price;
