@@ -1,9 +1,8 @@
 {
-“carName”: “A4”,
+“carName”: 4,
 “carBrand”: “Audi”,
-“Engine”: 1.2
-},
-“seats”: [
+“Engine”: 1.2,
+"seats": [
 {
 “material”: “leather”, 
 “color”: “black”
@@ -21,3 +20,4 @@
 “color”: “orange”
 }
 ]
+}
