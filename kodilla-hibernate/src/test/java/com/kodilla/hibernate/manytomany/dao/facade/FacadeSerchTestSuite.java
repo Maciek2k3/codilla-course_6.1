@@ -29,22 +29,17 @@ public class FacadeSerchTestSuite {
     @Autowired
     private EmployeeDao employeeDao;
 
-    private List<Company> resultCompanyList = new ArrayList<>();
-    private List<Employee> resultEmployeeList = new ArrayList<>();
-
     @Test
     public void companyLikeTest() {
         //Given
         Company comp = new Company("Comp");
         Company comp1 = new Company("Comp2");
-        resultCompanyList.add(comp);
-        resultCompanyList.add(comp1);
         companyDao.save(comp);
         companyDao.save(comp1);
         //When
         List<Company> queryListComp = serchFacade.retrieveCompanyNameLike("om");
         //Then
-        assertEquals(resultCompanyList.size(), queryListComp.size());
+        assertEquals(2, queryListComp.size());
 
     }
 
@@ -53,13 +48,11 @@ public class FacadeSerchTestSuite {
         //Given
         Employee empl1 = new Employee("Name", "Name");
         Employee empl2 = new Employee("Name2", "Name2");
-        resultEmployeeList.add(empl1);
-        resultEmployeeList.add(empl2);
         employeeDao.save(empl1);
         employeeDao.save(empl2);
         //When
-        List<Employee> queryListEmpl=serchFacade.retrieveEmployeeLike("me");
+        List<Employee> queryListEmpl = serchFacade.retrieveEmployeeLike("me");
         //Then
-        assertEquals(resultEmployeeList.size(),queryListEmpl.size());
+        assertEquals(4, queryListEmpl.size());
     }
 }
