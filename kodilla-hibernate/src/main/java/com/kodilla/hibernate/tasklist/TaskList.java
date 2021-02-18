@@ -21,15 +21,14 @@ public class TaskList {
     private String listName;
     @Column(name = "DESCRIPTION")
     private String description;
-
-    private List<Task> tasks = new ArrayList<>();
-
     @OneToMany(
             targetEntity = Task.class,
             mappedBy = "taskList",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
+    private List<Task> tasks;
+
     public List<Task> getTasks() {
         return tasks;
     }

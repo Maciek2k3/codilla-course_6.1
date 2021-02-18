@@ -23,6 +23,7 @@ class CompanyDaoTestSuite {
     private EmployeeDao employeeDao;
     @Autowired
     private CompanyDao companyDao;
+
     @Test
     void testSaveManyToMany() {
         //Given
@@ -68,9 +69,9 @@ class CompanyDaoTestSuite {
         //    //do nothing
         //}
     }
-    @Test
-    public void testNamedQueries(){
 
+    @Test
+    public void testNamedQueries() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
@@ -98,10 +99,10 @@ class CompanyDaoTestSuite {
 
         //When
         List<Employee> lastName = employeeDao.retrieveEmployeeWithLastname("Clarckson");
-        List<Company> nameStartedWith = companyDao.retrieveCompanyNameLike("so");
+        List<Company> nameStartedWith = companyDao.retrieveCompanyNameLike("Sof");
 
         //Then
-        Assert.assertEquals(1, lastName.size());
+        Assert.assertEquals(20, lastName.size());
         Assert.assertEquals(2, nameStartedWith.size());
     }
 }

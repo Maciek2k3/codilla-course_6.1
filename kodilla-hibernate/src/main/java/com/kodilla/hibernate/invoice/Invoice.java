@@ -12,8 +12,16 @@ public class Invoice {
     @NotNull
     @Column(name="INVOICE_ID", unique = true)
     private int id;
+
     @Column(name="NUMBER")
     private String number;
+
+    @OneToMany(
+            targetEntity = Item.class,
+            mappedBy = "invoice",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+    )
     private List<Item> items;
 
     public Invoice(String number) {
@@ -38,13 +46,7 @@ public class Invoice {
     public void setNumber(String number) {
         this.number = number;
     }
-    @OneToMany(
-            targetEntity = Item.class,
-            mappedBy = "invoice",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    @Column(name = "ITEM_ID", nullable = false)
+
     public List<Item> getItems() {
         return items;
     }

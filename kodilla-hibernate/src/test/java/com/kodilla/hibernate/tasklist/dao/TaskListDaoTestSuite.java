@@ -64,7 +64,7 @@ public class TaskListDaoTestSuite {
         TaskFinancialDetails tfd2 = new TaskFinancialDetails(new BigDecimal(10), false);
         task.setTaskFinancialDetails(tfd);
         task2.setTaskFinancialDetails(tfd2);
-        TaskList taskList = new TaskList("List1", description);
+        TaskList taskList = new TaskList(description, "ist");
         taskList.getTasks().add(task);
         taskList.getTasks().add(task2);
         task.setTaskList(taskList);

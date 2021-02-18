@@ -8,6 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertNotEquals;
 
@@ -22,7 +24,8 @@ public class testToProductItemDetails {
    public void testProductItem() {
         //Given
         Product product = new Product("Bread");
-        Item item = new Item(product, new BigDecimal(40), 2, new BigDecimal(45));
+        Item item=new Item(product,new BigDecimal(2),2,new BigDecimal(4));
+
 
         //When
         itemDao.save(item);

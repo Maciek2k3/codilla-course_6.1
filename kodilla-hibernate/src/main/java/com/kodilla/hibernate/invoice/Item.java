@@ -12,24 +12,22 @@ public class Item {
     @NotNull
     @Column(name = "ITEM_ID", unique = true)
     private int id;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PRODUCT_ID")
     private Product product;
+
     @Column(name = "PRICE")
     private BigDecimal price;
+
     @Column(name = "QUANTITY")
     private int quantity;
+
     @Column(name = "VALUE")
     private BigDecimal value;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "INVOICE_ID", nullable = false)
-    public Invoice getInvoice() {
-        return invoice;
-    }
-
-    public void setInvoice(Invoice invoice) {
-        this.invoice = invoice;
-    }
-
     private Invoice invoice;
 
 
@@ -52,8 +50,7 @@ public class Item {
         this.id = id;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "PRODUCT_ID")
+
     public Product getProduct() {
         return product;
     }
@@ -85,4 +82,14 @@ public class Item {
     public void setValue(BigDecimal value) {
         this.value = value;
     }
+
+
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
 }

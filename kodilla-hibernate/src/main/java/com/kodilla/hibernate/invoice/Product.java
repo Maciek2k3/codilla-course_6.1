@@ -13,6 +13,7 @@ public class Product {
     @NotNull
     @Column(name="PRODUCT_ID")
     private int id;
+
     @NotNull
     @Column(name="NAME")
     private String name;
@@ -23,15 +24,6 @@ public class Product {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    @Column(name = "ITEM_ID", nullable = false)
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
-
     private List<Item> items;
 
     public Product(String name) {
@@ -57,4 +49,13 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
 }
