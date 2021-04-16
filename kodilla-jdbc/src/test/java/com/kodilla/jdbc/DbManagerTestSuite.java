@@ -1,6 +1,6 @@
 package com.kodilla.jdbc;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +11,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class DbManagerTestSuite {
     @Test
-    void testConnect() throws SQLException {
+    public void testConnect() throws SQLException {
         //Given
         //When
         DbManager dbManager = DbManager.getInstance();
@@ -19,7 +19,7 @@ public class DbManagerTestSuite {
         assertNotNull(dbManager.getConnection());
     }
     @Test
-    void testSelectUsers() throws SQLException {
+    public void testSelectUsers() throws SQLException {
         //Given
         DbManager dbManager = DbManager.getInstance();
 
@@ -41,7 +41,7 @@ public class DbManagerTestSuite {
         assertEquals(5, counter);
     }
     @Test
-    void testSelectUsersAndPosts() throws SQLException {
+    public void testSelectUsersAndPosts() throws SQLException {
         //Given
         DbManager dbManager = DbManager.getInstance();
 
