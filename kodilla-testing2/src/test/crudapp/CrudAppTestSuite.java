@@ -2,7 +2,6 @@ package com.kodilla.testing2.crudapp;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.junit.Before;
 import org.junit.Test;
